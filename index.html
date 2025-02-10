@@ -11,6 +11,40 @@
         <h1 class="page-header">Geoff's Library</h1>
     </div>
     <div class="book-list"></div>
+    <div class="new-book-form">
+        <div class="form-title">
+            <h1 class="new-book-form">Add a new book.</h1>
+        </div>
+
+        <!-- ADD FORM HERE -->
+         <form id="add-book">
+            <p>
+                <label for="title">
+                    <span id="add-book-title">Title: </span>
+                </label>
+                <input type="text" id="title" name="title" required>
+            </p>
+            <p>
+                <label for="author">
+                    <span id="add-book-author">Author: </span>
+                    <input type="text" id="author" name="author" required>
+                </label>
+            </p>
+            <p>
+                <label for="pages">
+                    <span id="add-book-pages">Amount of pages: </span>
+                </label>
+                <input type="text" id="pages" name="pages" required>
+            </p>
+            <p>
+                <label for="year">
+                    <span id="add-book-year">Year published: </span>
+                </label>
+                <input type="text" id="year" name="year" required>
+            </p>
+
+         </form>
+    </div>
     <script src="java-book.js"></script>
 </body>
 </html>
