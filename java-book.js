@@ -17,30 +17,93 @@ function Book(title, author, pages, year) {
 function addBookToLibrary(title, author, pages, year) {
     // take params, create a book THEN STORE IT IN ARRAY
     let newBook = new Book(title, author, pages, year);
-    return myLibrary.push(newBook);
+    myLibrary.push(newBook);
 
-    //CALL THE DISPLAY LIBRARY FUNCTION to put on HTML page
+    // after adding book to library array, then run display library function to add it to HTML
 }
 
 function displayLibrary() {
+            // (https://stackoverflow.com/questions/63356133/loop-through-an-array-of-objects-and-display-in-html)
+        const libraryList = document.createElement("ul");
+        libraryList.classList.add("libraryList");
+        bookLibrary.appendChild(libraryList);
+
+    // for each item in library (EACH ARRAY), adding a new table row for each item.
     function addBook(arrayItem) {
+
+        const libraryTable = document.createElement("table");
+        libraryTable.classList.add("libraryTable");
+        bookLibrary.appendChild(libraryTable);
+
+        const titleRow = document.createElement("tr");
+        titleRow.classList.add("titleRow");
+        libraryTable.appendChild(titleRow);
+
+        const titleTableContent = document.createElement("td");
+        titleTableContent.classList.add("titleTableContent");
+        titleTableContent.textContent = "Book Information";
+        titleRow.appendChild(titleTableContent);
         
-        // take each array item and add it as a div to the table created earlier
+        const bookRowOne = document.createElement("tr");
+        bookRowOne.classList.add("bookRowOne");
+        libraryTable.appendChild(bookRowOne);
+
+        const titleContent = document.createElement("td");
+        titleContent.classList.add("titleContent");
+        titleContent.textContent = "Title: " + arrayItem.title.toString();
+        bookRowOne.appendChild(titleContent);
+
+        const bookRowTwo = document.createElement("tr");
+        bookRowTwo.classList.add("bookRowTwo");
+        libraryTable.appendChild(bookRowTwo);
+
+        const authorContent = document.createElement("td");
+        authorContent.classList.add("authorContent");
+        authorContent.textContent = "Author: " + arrayItem.author.toString();
+        bookRowTwo.appendChild(authorContent);
+
+        const bookRowThree = document.createElement("tr");
+        bookRowThree.classList.add("bookRowTwo");
+        libraryTable.appendChild(bookRowThree);
+
+        const pagesContent = document.createElement("td");
+        pagesContent.classList.add("pagesContent");
+        pagesContent.textContent = "Pages: " + arrayItem.pages.toString();
+        bookRowThree.appendChild(pagesContent);
+
+        const bookRowFour = document.createElement("tr");
+        bookRowFour.classList.add("bookRowTwo");
+        libraryTable.appendChild(bookRowFour);
+
+        const yearContent = document.createElement("td");
+        yearContent.classList.add("yearContent");
+        yearContent.textContent = "Year published: " + arrayItem.year.toString();
+        bookRowFour.appendChild(yearContent);
+    
     };
     
+    //go over each array item in my library and call function
+       
     myLibrary.forEach(addBook);
-    // loop the mylibrary array for each item
-    // break up array and separate into items
-    // display on HTML table, APPEND EACH CHILD TO a table row 
-            // (https://stackoverflow.com/questions/63356133/loop-through-an-array-of-objects-and-display-in-html)
+
 }
 
 
 //MANUALLY ADDED BOOKS
 const catcherInTheRye = new Book("Catcher in the Rye", "JD Salinger", "240", "1951");
 
-console.log(addBookToLibrary("Catcher in the Rye", "JD Salinger", "240", "1951"));
+console.log(typeof catcherInTheRye);
+
+console.log(catcherInTheRye);
+
+addBookToLibrary("Catcher in the Rye", "JD Salinger", "240", "1951");
+
+addBookToLibrary("Blood Meridian", "Cormac McCarthy", "384", "1985");
 
 console.log(myLibrary);
+
+displayLibrary();
+
+// console.log(myLibrary);
 
 
