@@ -170,7 +170,13 @@ function userAddBook (event) {
     let author = userAuthor.value;
     let pages = userPages.value;
     let year = userYear.value;
-    let read = userRead.checked;
+    // let readButton = userRead.checked;
+
+    if (userRead.checked) {
+        read = "Read";
+    } else {
+        read = "Not read";
+    };    
 
     addBookToLibrary(title,author,pages, year, read);
     displayLibrary();
