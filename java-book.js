@@ -137,10 +137,15 @@ function displayLibrary() {
         removeButton.textContent = "Remove book.";
         libraryTable.appendChild(removeButton);
 
+        // add remove button that splices out one item based on this array item's index.
+
         removeButton.addEventListener("click", () => {
             myLibrary.splice(myLibrary.indexOf(arrayItem), 1);
             displayLibrary();
         });
+
+        // add a read button to change read status
+
     
     };
     

@@ -6,3 +6,43 @@
 table, td {
     border: 1px solid black;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    height: 80px;
+    background-color: beige;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+table {
+    background-color: rgb(156, 132, 156);
+}
+
+.titleTableContent {
+    font-weight: bold;
+    text-align: center;
+}
+
+.leftColumn {
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 4px;
+}
+
+td {
+    background-color: rgb(209, 189, 209);
+}
