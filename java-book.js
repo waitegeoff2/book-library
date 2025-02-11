@@ -3,6 +3,7 @@ const myLibrary = [];
 const bookLibrary = document.querySelector(".book-list");
 const submitButton = document.querySelector(".submit-button");
 const bookForm = document.querySelector("#add-book-form");
+const removeButton = document.querySelector(".removeBookButton");
 
 function Book(title, author, pages, year, read) {
     // this is the constructor
@@ -11,10 +12,6 @@ function Book(title, author, pages, year, read) {
     this.pages = pages;
     this.year = year;
     this.read = read;
-
-    this.info = function() {
-        return [this.title + " by " + this.author + ". Book has " + this.pages + " pages. Book was published in " + this.year + "."]
-    };
 }
 
 function addBookToLibrary(title, author, pages, year, read) {
@@ -33,6 +30,8 @@ function displayLibrary() {
 
     // for each item in library (EACH ARRAY), adding a new table row for each item.
     function addBook(arrayItem) {
+
+        console.log(myLibrary.indexOf(arrayItem));
 
 
         const libraryTable = document.createElement("table");
@@ -137,6 +136,11 @@ function displayLibrary() {
         removeButton.classList.add("removeBookButton");
         removeButton.textContent = "Remove book.";
         libraryTable.appendChild(removeButton);
+
+        removeButton.addEventListener("click", () => {
+            myLibrary.splice(myLibrary.indexOf(arrayItem), 1);
+            displayLibrary();
+        });
     
     };
     
@@ -171,6 +175,7 @@ function userAddBook (event) {
 }
 
 bookForm.addEventListener("submit", userAddBook); 
+
 
 
 //MANUALLY ADDED BOOKS
