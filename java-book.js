@@ -1,6 +1,8 @@
-const bookLibrary = document.querySelector(".book-list");
-
 const myLibrary = [];
+
+const bookLibrary = document.querySelector(".book-list");
+const submitButton = document.querySelector(".submit-button");
+const bookForm = document.querySelector("#add-book-form");
 
 function Book(title, author, pages, year, read) {
     // this is the constructor
@@ -24,13 +26,14 @@ function addBookToLibrary(title, author, pages, year, read) {
 }
 
 function displayLibrary() {
-            // (https://stackoverflow.com/questions/63356133/loop-through-an-array-of-objects-and-display-in-html)
-        const libraryList = document.createElement("ul");
-        libraryList.classList.add("libraryList");
-        bookLibrary.appendChild(libraryList);
+    // resets the HTML in the book list DOM each time (blanks it and restarts). Array is still the same so
+    // it runs over each array element. 
+
+    bookLibrary.innerHTML= "";
 
     // for each item in library (EACH ARRAY), adding a new table row for each item.
     function addBook(arrayItem) {
+
 
         const libraryTable = document.createElement("table");
         libraryTable.classList.add("libraryTable");
@@ -120,13 +123,20 @@ function displayLibrary() {
 
         const readContentLeft = document.createElement("td");
         readContentLeft.classList.add("leftColumn");
-        readContentLeft.textContent = "Read/Not Read";
+        readContentLeft.textContent = "Read book?";
         bookRowFive.appendChild(readContentLeft);
 
         const readContent = document.createElement("td");
         readContent.classList.add("readContent");
         readContent.textContent = arrayItem.read.toString();
         bookRowFive.appendChild(readContent);
+
+        //remove button
+
+        const removeButton = document.createElement("button")
+        removeButton.classList.add("removeBookButton");
+        removeButton.textContent = "Remove book.";
+        libraryTable.appendChild(removeButton);
     
     };
     
@@ -136,9 +146,37 @@ function displayLibrary() {
 
 }
 
+//handle submit button
+
+function userAddBook (event) {
+    event.preventDefault();
+
+    const userTitle = document.querySelector("#form-title");
+    const userAuthor = document.querySelector("#form-author");
+    const userPages = document.querySelector("#form-pages");
+    const userYear = document.querySelector("#form-year");
+    const userRead = document.querySelector("#form-read");
+
+    let title = userTitle.value;
+    let author = userAuthor.value;
+    let pages = userPages.value;
+    let year = userYear.value;
+    let read = userRead.checked;
+
+    addBookToLibrary(title,author,pages, year, read);
+    displayLibrary();
+
+    bookForm.reset();
+
+}
+
+bookForm.addEventListener("submit", userAddBook); 
+
 
 //MANUALLY ADDED BOOKS
 const catcherInTheRye = new Book("Catcher in the Rye", "JD Salinger", "240", "1951");
+const bloodMeridian = new Book("Blood Meridian", "Cormac McCarthy", "384", "1985", "Read");
+
 
 console.log(typeof catcherInTheRye);
 
