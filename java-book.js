@@ -4,6 +4,7 @@ const bookLibrary = document.querySelector(".book-list");
 const submitButton = document.querySelector(".submit-button");
 const bookForm = document.querySelector("#add-book-form");
 const removeButton = document.querySelector(".removeBookButton");
+const readButton = document.querySelector(".readButton");
 
 function Book(title, author, pages, year, read) {
     // this is the constructor
@@ -12,6 +13,10 @@ function Book(title, author, pages, year, read) {
     this.pages = pages;
     this.year = year;
     this.read = read;
+}
+
+function editReadStatus () {
+    
 }
 
 function addBookToLibrary(title, author, pages, year, read) {
@@ -31,8 +36,7 @@ function displayLibrary() {
     // for each item in library (EACH ARRAY), adding a new table row for each item.
     function addBook(arrayItem) {
 
-        console.log(myLibrary.indexOf(arrayItem));
-
+        //create table
 
         const libraryTable = document.createElement("table");
         libraryTable.classList.add("libraryTable");
@@ -130,12 +134,17 @@ function displayLibrary() {
         readContent.textContent = arrayItem.read.toString();
         bookRowFive.appendChild(readContent);
 
+        //add div for two buttons
+        const buttonDiv = document.createElement("div");
+        buttonDiv.classList.add("buttonDiv");
+        libraryTable.appendChild(buttonDiv);
+
         //remove button
 
-        const removeButton = document.createElement("button")
+        const removeButton = document.createElement("button");
         removeButton.classList.add("removeBookButton");
         removeButton.textContent = "Remove book.";
-        libraryTable.appendChild(removeButton);
+        buttonDiv.appendChild(removeButton);
 
         // add remove button that splices out one item based on this array item's index.
 
@@ -145,6 +154,24 @@ function displayLibrary() {
         });
 
         // add a read button to change read status
+
+        const readButton = document.createElement("button");
+        readButton.classList.add("readButton");
+        readButton.textContent = "Read this.";
+        buttonDiv.appendChild(readButton);
+
+        readButton.addEventListener("click", () => {
+                  
+            //edit the read column on click
+            if (readContent.textContent === "Not read") {
+                readContent.textContent = "Read";
+            } else if (readContent.textContent === "Read") {
+                readContent.textContent = "Read";
+            };
+
+            //****EDIT THE LIBRARY ITEM and display library again
+            
+        });
 
     
     };
