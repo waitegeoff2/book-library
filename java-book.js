@@ -200,6 +200,7 @@ function userAddBook (event) {
     let author = userAuthor.value;
     let pages = userPages.value;
     let year = userYear.value;
+    
     // let readButton = userRead.checked;
 
     if (userRead.checked) {
