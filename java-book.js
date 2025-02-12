@@ -15,10 +15,6 @@ function Book(title, author, pages, year, read) {
     this.read = read;
 }
 
-function editReadStatus () {
-
-}
-
 function addBookToLibrary(title, author, pages, year, read) {
     // take params, create a book THEN STORE IT IN ARRAY
     let newBook = new Book(title, author, pages, year, read);
@@ -200,7 +196,7 @@ function userAddBook (event) {
     let author = userAuthor.value;
     let pages = userPages.value;
     let year = userYear.value;
-    
+
     // let readButton = userRead.checked;
 
     if (userRead.checked) {
