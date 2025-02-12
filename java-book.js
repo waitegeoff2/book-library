@@ -16,7 +16,7 @@ function Book(title, author, pages, year, read) {
 }
 
 function editReadStatus () {
-    
+
 }
 
 function addBookToLibrary(title, author, pages, year, read) {
@@ -161,15 +161,18 @@ function displayLibrary() {
         buttonDiv.appendChild(readButton);
 
         readButton.addEventListener("click", () => {
+
+            // edit the arrayItem.read on click of the button. Display library again. 
+
+            console.log(arrayItem);
                   
-            //edit the read column on click
-            if (readContent.textContent === "Not read") {
-                readContent.textContent = "Read";
-            } else if (readContent.textContent === "Read") {
-                readContent.textContent = "Read";
+            if (arrayItem.read === "Not read") {
+                arrayItem.read = "Read";
+            } else {
+                arrayItem.read = "Read";
             };
 
-            //****EDIT THE LIBRARY ITEM and display library again
+            displayLibrary();
             
         });
 
@@ -225,9 +228,9 @@ console.log(typeof catcherInTheRye);
 
 console.log(catcherInTheRye);
 
-addBookToLibrary("Catcher in the Rye", "JD Salinger", "240", "1951", "Read");
+addBookToLibrary("The book", "Geoff", "240", "2022", "Read");
 
-addBookToLibrary("Blood Meridian", "Cormac McCarthy", "384", "1985", "Read");
+addBookToLibrary("Frog Meridian", "Cormac McCarthy", "384", "1985", "Read");
 
 console.log(myLibrary);
 
