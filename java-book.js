@@ -6,14 +6,27 @@ const bookForm = document.querySelector("#add-book-form");
 const removeButton = document.querySelector(".removeBookButton");
 const readButton = document.querySelector(".readButton");
 
-function Book(title, author, pages, year, read) {
-    // this is the constructor
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.year = year;
-    this.read = read;
+class Book {
+    constructor (title, author, pages, year, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.year = year;
+        this.read = read;
+    }
+
+    addBooktoLibrary
+
 }
+
+// function Book(title, author, pages, year, read) {
+//     // this is the constructor
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.year = year;
+//     this.read = read;
+// }
 
 function addBookToLibrary(title, author, pages, year, read) {
     // take params, create a book THEN STORE IT IN ARRAY
@@ -219,11 +232,6 @@ bookForm.addEventListener("submit", userAddBook);
 //MANUALLY ADDED BOOKS
 const catcherInTheRye = new Book("Catcher in the Rye", "JD Salinger", "240", "1951");
 const bloodMeridian = new Book("Blood Meridian", "Cormac McCarthy", "384", "1985", "Read");
-
-
-console.log(typeof catcherInTheRye);
-
-console.log(catcherInTheRye);
 
 addBookToLibrary("The book", "Geoff", "240", "2022", "Read");
 
