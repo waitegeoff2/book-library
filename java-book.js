@@ -15,18 +15,7 @@ class Book {
         this.read = read;
     }
 
-    addBooktoLibrary
-
 }
-
-// function Book(title, author, pages, year, read) {
-//     // this is the constructor
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.year = year;
-//     this.read = read;
-// }
 
 function addBookToLibrary(title, author, pages, year, read) {
     // take params, create a book THEN STORE IT IN ARRAY
