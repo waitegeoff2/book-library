@@ -5,6 +5,7 @@ const submitButton = document.querySelector(".submit-button");
 const bookForm = document.querySelector("#add-book-form");
 const removeButton = document.querySelector(".removeBookButton");
 const readButton = document.querySelector(".readButton");
+const bookTitle = document.querySelector("#form-title");
 
 class Book {
     constructor (title, author, pages, year, read) {
@@ -215,6 +216,14 @@ function userAddBook (event) {
 }
 
 bookForm.addEventListener("submit", userAddBook); 
+
+bookTitle.addEventListener("input", () => {
+    if (bookTitle.validity.tooShort) {
+      bookTitle.setCustomValidity("That title is too short!");
+    } else {
+      bookTitle.setCustomValidity("");
+    }
+});
 
 
 
