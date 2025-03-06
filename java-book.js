@@ -219,6 +219,8 @@ bookForm.addEventListener("submit", userAddBook);
 
 bookTitle.addEventListener("input", () => {
     if (bookTitle.validity.tooShort) {
+        // if book title's validity (minlength) is too short, then we call the 
+        //set custom validity method which gives that output
       bookTitle.setCustomValidity("That title is too short!");
     } else {
       bookTitle.setCustomValidity("");
